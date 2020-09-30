@@ -1,5 +1,6 @@
 import IClientsRepository from '../repositories/IClientsRepository';
 import Client from '../models/Client';
+import AppError from '../errors/AppError';
 
 interface IRequest {
   name: string;
@@ -21,6 +22,12 @@ class CreateClientService {
     name,
     telephone,
   }: IRequest): Promise<Client> {
+    const verifyClient = await this.clientRepository.findByEmail(email);
+
+    if (verifyClient) {
+      throw new AppError('Client already exists', 400);
+    }
+
     const client = await this.clientRepository.create({
       cpf,
       email,
