@@ -32,7 +32,9 @@ export class CreateClients1601402061732 implements MigrationInterface {
           },
           {
             name: 'code',
-            type: 'varchar',
+            type: 'uuid',
+            generationStrategy: 'uuid',
+            default: 'uuid_generate_v4()',
           },
           {
             name: 'created_at',
