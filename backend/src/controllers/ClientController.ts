@@ -1,6 +1,7 @@
 import { Request, Response } from 'express';
 import ClientRepository from '../repositories/ClientsRepository';
 import CreateClientService from '../services/CreateClientService';
+import UpdateClientService from '../services/UpdateClientService';
 
 class ClientController {
   public async index(request: Request, response: Response) {
@@ -19,6 +20,24 @@ class ClientController {
     const client = await createClient.execute({ cpf, email, name, telephone });
 
     return response.status(201).json(client);
+  }
+
+  public async update(request: Request, response: Response) {
+    const { id } = request.params;
+    const { name, email, telephone, cpf } = request.body;
+
+    const clientRepository = new ClientRepository();
+    const updateClient = new UpdateClientService(clientRepository);
+
+    const client = await updateClient.execute({
+      cpf,
+      email,
+      name,
+      telephone,
+      id,
+    });
+
+    return response.status(200).json(client);
   }
 }
 
