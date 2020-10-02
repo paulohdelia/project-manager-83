@@ -3,6 +3,7 @@ import ICreateClientDTO from '../dtos/ICreateClientDTO';
 
 export default interface IClientsRepository {
   findAll(): Promise<Client[]>;
+  findAllPaginated(page: number): Promise<[Client[], number]>;
   findById(id: string): Promise<Client | undefined>;
   findByEmail(email: string): Promise<Client | undefined>;
   create(createClientDTO: ICreateClientDTO): Promise<Client>;

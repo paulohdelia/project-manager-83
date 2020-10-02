@@ -14,6 +14,13 @@ class ClientRepository implements IClientsRepository {
     return this.ormRepository.find();
   }
 
+  public async findAllPaginated(page: number): Promise<[Client[], number]> {
+    return this.ormRepository.findAndCount({
+      skip: page,
+      take: 10,
+    });
+  }
+
   public async findById(id: string): Promise<Client | undefined> {
     return this.ormRepository.findOne({ where: { id } });
   }
