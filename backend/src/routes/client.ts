@@ -5,7 +5,8 @@ const clientRoutes = Router();
 const clientController = new ClientController();
 
 clientRoutes.get('/', clientController.index);
-clientRoutes.get('/paginated', clientController.pagineted);
+clientRoutes.get('/paginated', clientController.paginated);
+clientRoutes.get('/search', clientController.search);
 clientRoutes.post('/', clientController.create);
 clientRoutes.put('/:id', clientController.update);
 

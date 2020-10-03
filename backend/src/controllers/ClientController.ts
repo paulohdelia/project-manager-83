@@ -12,7 +12,7 @@ class ClientController {
     return response.json(clients);
   }
 
-  public async pagineted(
+  public async paginated(
     request: Request,
     response: Response,
   ): Promise<Response> {
@@ -26,6 +26,17 @@ class ClientController {
           ? 0
           : parseInt(page.toString(), 10),
     });
+
+    return response.status(200).json(clients);
+  }
+
+  public async search(request: Request, response: Response): Promise<Response> {
+    const { name } = request.query;
+
+    const clientRepository = new ClientRepository();
+    const clients = await clientRepository.findAllByName(
+      name?.toString() || '',
+    );
 
     return response.status(200).json(clients);
   }
