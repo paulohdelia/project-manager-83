@@ -56,6 +56,10 @@ class ClientRepository implements IClientsRepository {
   public async save(client: Client): Promise<Client> {
     return this.ormRepository.save(client);
   }
+
+  public async delete(id: string): Promise<void> {
+    this.ormRepository.delete(id);
+  }
 }
 
 export default ClientRepository;

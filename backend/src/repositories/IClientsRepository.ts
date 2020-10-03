@@ -9,4 +9,5 @@ export default interface IClientsRepository {
   findByEmail(email: string): Promise<Client | undefined>;
   create(createClientDTO: ICreateClientDTO): Promise<Client>;
   save(client: Client): Promise<Client>;
+  delete(id: string): Promise<void>;
 }

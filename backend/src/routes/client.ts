@@ -9,5 +9,6 @@ clientRoutes.get('/paginated', clientController.paginated);
 clientRoutes.get('/search', clientController.search);
 clientRoutes.post('/', clientController.create);
 clientRoutes.put('/:id', clientController.update);
+clientRoutes.delete('/:id', clientController.destroy);
 
 export default clientRoutes;
