@@ -1,6 +1,12 @@
 import { createGlobalStyle } from 'styled-components';
 
 export default createGlobalStyle`
+  :root {
+    --primary: #00e676;
+    --background: #111;
+    --entry-card: #373737;
+  }
+
   * {
     margin: 0;
     padding: 0;
@@ -14,5 +20,6 @@ export default createGlobalStyle`
 
   body {
     font-family: 'Roboto', sans-serif;
+    background-color: var(--background);
   }
 `;
