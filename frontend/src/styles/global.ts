@@ -5,6 +5,7 @@ export default createGlobalStyle`
     --primary: #00e676;
     --background: #111;
     --entry-card: #373737;
+    --placeholder: #a5a5a5;
   }
 
   * {
