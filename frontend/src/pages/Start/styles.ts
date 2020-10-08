@@ -44,6 +44,7 @@ export const EntryCardItem = styled.div<IEntryCardItemProps>`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  transition: 0.2s;
 
   span {
     font-weight: bold;
@@ -68,14 +69,7 @@ export const EntryCardItem = styled.div<IEntryCardItemProps>`
           background: var(--primary);
 
           &:hover {
-            /* 
-              I tried to get the var using this: 
-                getComputedStyle(document.documentElement).getPropertyValue('--var-name')
-              but I kept getting errors
-
-              For now I hardcoded the value. I think that using themes would handle this the way I want
-            */
-            background: ${shade(0.2, '#00e676')};
+            background: var(--primary-shade);
           }
         `}
 
